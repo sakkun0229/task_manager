@@ -5,7 +5,7 @@
 </p>
 <div>
   <% @users.each do |user| %>
-    <div><%=user.name%></div>
+    <div><%= link_to user.name, admin_user_path(user) %></div>
   <% end %>
 </div>
 </table>
