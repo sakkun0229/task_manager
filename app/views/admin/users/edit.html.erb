@@ -1,8 +1,8 @@
-<h2>New User</h2>
+<h2>Edit User</h2>
 
 
 
-<%= form_for :user, url:admin_users_path do |f| %>
+<%= form_for @user, url:admin_user_path(@user) do |f| %>
 <p>
   Name<br>
   <%= f.text_field :name %>
@@ -18,12 +18,7 @@
   <%= f.password_field :password %>
   <%= @user.errors.messages[:password][0]%>
 </p>
-<!--enumの関係？でエラー出る
-<p>
-  Admin<br>
-  <%= f.check_box :admin %>
-</p>
--->
+
 <p>
   <%= f.submit  %>
 </p>
