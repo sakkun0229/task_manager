@@ -16,11 +16,11 @@
 </p>
 <p>
   Status
-  <%= f.select :status,  [["NSY","0"], ["WIP","2"], ["DONE","3"]] %>
+  <%= f.select :status, Task.statuses.keys %>
 </p>
 <p>
   Priority
-  <%= f.select :priority, [["Low","0"], ["Mid","2"], ["High","3"]] %>
+  <%= f.select :priority, Task.priorities.keys %>
 </p>
 <p>
   <%= f.submit  %>
