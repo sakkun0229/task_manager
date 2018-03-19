@@ -1,6 +1,14 @@
 
 <h1>Task Index</h1>
 
+<p>
+<%= form_tag tasks_path, :method => "get" do %>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag "Search", :name => nil %>
+<%end%>
+</p>
+
+
 <table class="table table-bordered table-hover">
   <tr>
     <th>User</th>
