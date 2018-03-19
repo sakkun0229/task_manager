@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  content: MyText
+  deadline: 2018-03-19
+  status: 1
+  priority: 1
+
+two:
+  content: MyText
+  deadline: 2018-03-19
+  status: 1
+  priority: 1
