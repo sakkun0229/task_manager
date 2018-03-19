@@ -1,0 +1,29 @@
+<h2>New Task</h2>
+
+<%= form_for :task, url:tasks_path do |f| %>
+<p>
+<% @task.errors.full_messages.each do |message| %>
+  <%= message %>
+<%end%>
+</p>
+<p>
+  Content<br>
+  <%= f.text_area :content %>
+</p>
+<p>
+  Deadline<br>
+  <%= f.date_field :deadline %>
+</p>
+<p>
+  Status
+  <%= f.select :status,  [["NSY","0"], ["WIP","2"], ["DONE","3"]] %>
+</p>
+<p>
+  Priority
+  <%= f.select :priority, [["Low","0"], ["Mid","2"], ["High","3"]] %>
+</p>
+<p>
+  <%= f.submit  %>
+</p>
+
+<%end%>

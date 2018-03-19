@@ -9,6 +9,11 @@
   </head>
 
   <body>
+    <header>
+      <%= link_to "Top", "/" %>
+      <%= link_to "Add Task", new_task_path %>
+    </header>
+
     <%= yield %>
   </body>
 </html>
