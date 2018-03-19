@@ -4,11 +4,11 @@ class Task < ApplicationRecord
   enum priority: { Low:0, Mid:1, High:2 }
 
   def self.search(search)
-        if search
-          Task.where(["content LIKE ?", "%#{search}%"])
-        else
-          Task.all
-        end
+    if search
+        Task.where(["content LIKE(?)", "%#{search}%"])
+    else
+        Task.all
     end
+  end
 
 end
