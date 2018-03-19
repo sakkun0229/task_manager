@@ -1,0 +1,11 @@
+
+<h1>User Index #admin</h1>
+<p>
+<%= link_to "New User", new_admin_user_path %>
+</p>
+<div>
+  <% @users.each do |user| %>
+    <div><%=user.name%></div>
+  <% end %>
+</div>
+</table>
