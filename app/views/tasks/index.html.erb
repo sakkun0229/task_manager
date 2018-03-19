@@ -18,7 +18,7 @@
     <td><%=task.priority%></td>
     <td><%=task.deadline%></td>
     <td><%=task.updated_at%></td>
-    <td><%= link_to("edit", "tasks/#{task.id}/edit") %>
+    <td><%= link_to "edit", edit_task_path(task)  %>
         <%= link_to("delete", "tasks/#{task.id}/destroy",{method:"post"}) %></td>
   </tr>
   <% end %>
