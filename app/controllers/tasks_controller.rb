@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+  before_action :auth_user!,{only:[:new,:edit,:update,:destroy]}
 
   def index
     @tasks = Task.all.order(updated_at: :desc)
