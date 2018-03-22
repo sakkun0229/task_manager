@@ -6,9 +6,9 @@ class TasksController < ApplicationController
     if params[:sort] == 'updated_at'
       @tasks = Task.all.order(updated_at: :desc)
     elsif params[:sort] == 'deadline'
-      @tasks = Task.all.order(deadline: :desc)
+      @tasks = Task.all.order(deadline: :asc)
     elsif params[:sort] == 'status'
-      @tasks = Task.all.order(status: :desc)
+      @tasks = Task.all.order(status: :asc)
     elsif params[:sort] == 'priority'
       @tasks = Task.all.order(priority: :desc)
     end
