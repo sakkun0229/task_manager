@@ -1,5 +1,15 @@
 class TasksController < ApplicationController
-  before_action :auth_user!,{only:[:new,:edit,:update,:destroy]}
+  before_action :auth_user,{only:[:new,:edit,:update,:destroy]}
+  before_action :ensure_correct_user,{only:[:edit,:update,:destroy]}
+
+
+  def ensure_correct_user
+    @task = Task.find_by(id: params[:id])
+    if @current_user.id != @task.user_id
+      flash[:notice] = "You don't have authority"
+      redirect_to("/")
+    end
+  end
 
   def index
     @tasks = Task.all.order(updated_at: :desc)
