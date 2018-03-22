@@ -4,6 +4,9 @@ Rails.application.routes.draw do
 resources :tasks
 
 root "tasks#index"
+get "login" => "users#login_form"
+post "login" => "users#login"
+post "logout" => "users#logout"
 
 namespace :admin do
   resources :users
