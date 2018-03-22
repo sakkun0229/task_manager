@@ -20,7 +20,7 @@
   </tr>
   <% @tasks.each do |task| %>
   <tr>
-    <td></td>
+    <td><%=task.user.name %></td>
     <td><%=task.content%></td>
     <td><%=task.status%></td>
     <td><%=task.priority%></td>
