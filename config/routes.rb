@@ -4,4 +4,10 @@ Rails.application.routes.draw do
 resources :tasks
 
 root "tasks#index"
+
+namespace :admin do
+  resources :users
+end
+
+
 end

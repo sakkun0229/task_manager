@@ -9,11 +9,16 @@
   </head>
 
   <body>
-    <header>
-      <%= link_to "Top", "/" %>
-      <%= link_to "Add Task", new_task_path %>
-    </header>
+    <nav class="navbar-inverse">
+    <ul>
+      <li class="nav-item"><%= link_to "Top", "/" %></li>
+      <li class="nav-item"><%= link_to "Add Task", new_task_path %></li>
+      <li class="nav-item"><%= link_to "Admin", admin_users_path %></li>
+    </ul>
+    </nav>
 
-    <%= yield %>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>

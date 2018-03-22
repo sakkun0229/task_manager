@@ -1,7 +1,17 @@
 class TasksController < ApplicationController
 
   def index
+    @tasks = Task.search(params[:search])
     @tasks = Task.all.order(updated_at: :desc)
+    if params[:sort] == 'updated_at'
+      @tasks = Task.all.order(updated_at: :desc)
+    elsif params[:sort] == 'deadline'
+      @tasks = Task.all.order(deadline: :desc)
+    elsif params[:sort] == 'status'
+      @tasks = Task.all.order(status: :desc)
+    elsif params[:sort] == 'priority'
+      @tasks = Task.all.order(priority: :desc)
+    end
   end
 
   def new

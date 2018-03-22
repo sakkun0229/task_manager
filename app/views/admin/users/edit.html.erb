@@ -1,0 +1,26 @@
+<h2>Edit User</h2>
+
+
+
+<%= form_for @user, url:admin_user_path(@user) do |f| %>
+<p>
+  Name<br>
+  <%= f.text_field :name %>
+  <%= @user.errors.messages[:name][0]%>
+</p>
+<p>
+  Email<br>
+  <%= f.text_field :email %>
+  <%= @user.errors.messages[:email][0]%>
+</p>
+<p>
+  Password<br>
+  <%= f.password_field :password %>
+  <%= @user.errors.messages[:password][0]%>
+</p>
+
+<p>
+  <%= f.submit  %>
+</p>
+
+<%end%>

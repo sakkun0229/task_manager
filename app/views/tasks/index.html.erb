@@ -1,7 +1,14 @@
 
 <h1>Task Index</h1>
+<!-- 検索フォーム形だけ-->
+<p>
+<%= form_tag("/", method:"get") do %>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag "Search", :name => nil %>
+<%end%>
+</p>
 
-<table>
+<table class="table table-bordered table-hover">
   <tr>
     <th>User</th>
     <th>Content</th>
@@ -9,6 +16,7 @@
     <th><a href="/?sort=priority" class="btn">Priority</a></th>
     <th><a href="/?sort=deadline" class="btn">Deadline</a></th>
     <th><a href="/?sort=updated_at" class="btn">Update</a></th>
+    <th></th>
   </tr>
   <% @tasks.each do |task| %>
   <tr>
