@@ -20,7 +20,7 @@
   </tr>
   <% @tasks.each do |task| %>
   <tr>
-    <td><%=task.user.name %></td>
+    <td><%=link_to(task.user.name, "/users/#{task.user.id}") %></td>
     <td><%=task.content%></td>
     <td><%=task.status%></td>
     <td><%=task.priority%></td>

@@ -1,5 +1,12 @@
 class UsersController < ApplicationController
-  before_action :ensure_correct_user,{only:[:edit,:update,:destroy]}
+  before_action :ensure_correct_user,{only:[:edit,:update]}
+
+  def ensure_correct_user
+    if @current_user.id != params[:id].to_i
+      flash[:notice] = "You don't have authority"
+      redirect_to("/")
+    end
+  end
 
   def show
     @user = User.find(params[:id])
