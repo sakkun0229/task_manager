@@ -1,3 +1,27 @@
 <h2><%= @user.name %></h2>
 
-このユーザーのタスク一覧
+<div>
+<%= "#{@user.name}'s all tasks"%>
+</div>
+
+<table class="table table-bordered table-hover">
+  <tr>
+    <th>Content</th>
+    <th><a href="/?sort=status" class="btn">Status</a></th>
+    <th><a href="/?sort=priority" class="btn">Priority</a></th>
+    <th><a href="/?sort=deadline" class="btn">Deadline</a></th>
+    <th><a href="/?sort=updated_at" class="btn">Update</a></th>
+    <th></th>
+  </tr>
+  <% @user.tasks.each do |task| %>
+  <tr>
+    <td><%=task.content%></td>
+    <td><%=task.status%></td>
+    <td><%=task.priority%></td>
+    <td><%=task.deadline%></td>
+    <td><%=task.updated_at%></td>
+    <td><%= link_to "[Edit]", edit_task_path(task)  %>
+        <%= link_to "[Delete]", task_path(task), method: :delete, data: {confirm: "Sure?"} %></td>
+  </tr>
+  <% end %>
+</table>

@@ -1,14 +1,14 @@
 class TasksController < ApplicationController
 
   def index
-    @tasks = Task.search(params[:search])
     @tasks = Task.all.order(updated_at: :desc)
+    @tasks = Task.search(params[:search])
     if params[:sort] == 'updated_at'
       @tasks = Task.all.order(updated_at: :desc)
     elsif params[:sort] == 'deadline'
-      @tasks = Task.all.order(deadline: :desc)
+      @tasks = Task.all.order(deadline: :asc)
     elsif params[:sort] == 'status'
-      @tasks = Task.all.order(status: :desc)
+      @tasks = Task.all.order(status: :asc)
     elsif params[:sort] == 'priority'
       @tasks = Task.all.order(priority: :desc)
     end
@@ -20,6 +20,7 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
+    @task.user_id = @current_user.id
     if @task.save
       redirect_to tasks_path
     else
