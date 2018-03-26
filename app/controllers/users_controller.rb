@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :ensure_correct_user,{only:[:edit,:update]}
+  before_destroy :
 
   def ensure_correct_user
     if @current_user.id != params[:id].to_i
