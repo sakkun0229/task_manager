@@ -1,5 +1,8 @@
 class Task < ApplicationRecord
   belongs_to :user
+  has_many :task_labels
+  has_many :labels, :through => :task_labels
+
   validates :content, presence: true
   enum status: { NOT:0, WIP:1, DONE:2 }
   enum priority: { Low:0, Mid:1, High:2 }

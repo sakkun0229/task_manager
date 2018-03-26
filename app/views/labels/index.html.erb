@@ -1,0 +1,20 @@
+<h2>ALL Labels</h2>
+<div>
+  <% @labels.each do |label| %>
+    <%= label.name %>
+    <%= link_to "[x]", label_path(label), method: :delete, data: {confirm: "Sure?"} %>
+  <%end%>
+</div>
+
+
+<div>Add New Label
+<%=form_for :label, url:labels_path do |f| %>
+<p>
+  <%= f.text_field :name %>
+</p>
+<p>
+  <%= f.submit  %>
+</p>
+<%end%>
+
+<div>
