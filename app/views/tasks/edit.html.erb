@@ -11,6 +11,12 @@
   <%= f.text_area :content %>
 </p>
 <p>
+  <%= f.label :Label %><br />
+  <%= collection_check_boxes(:task, :label_ids, Label.all, :id, :name) do |b| %>
+    <%= b.label { b.check_box + b.text } %>
+  <% end %>
+</p>
+<p>
   Deadline<br>
   <%= f.date_field :deadline %>
 </p>

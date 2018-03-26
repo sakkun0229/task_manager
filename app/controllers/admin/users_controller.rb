@@ -1,4 +1,6 @@
 class Admin::UsersController < ApplicationController
+
+  before_action :auth_user
   before_action :auth_admin
 
   def index
