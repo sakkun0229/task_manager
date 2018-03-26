@@ -1,15 +1,15 @@
 
 <h1>User Index #admin</h1>
 <p>
-<%= link_to "New User", new_admin_user_path %>
+<%= link_to "Add New User", new_admin_user_path %>
 </p>
-<div>
+<div><ul>
   <% @users.each do |user| %>
-    <div>
+    <div><li>
       <%= link_to user.name, admin_user_path(user) %>
       <%= link_to "[Edit]", edit_admin_user_path(user)%>
       <%= link_to "[Delete]", admin_user_path(user), method: :delete, data: {confirm: "Sure?"} %>
-    </div>
+    </li></div>
   <% end %>
-</div>
+</ul></div>
 </table>

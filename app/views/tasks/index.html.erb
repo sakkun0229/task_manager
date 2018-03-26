@@ -23,7 +23,7 @@
   <tr>
     <td><%=link_to(task.user.name, "/users/#{task.user.id}") %></td>
     <td><%=task.content%></td>
-    <td></td>
+    <td><%=task.labels%></td>
     <td><%=task.status%></td>
     <td><%=task.priority%></td>
     <td><%=task.deadline%></td>
