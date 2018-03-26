@@ -5,6 +5,6 @@ class User < ApplicationRecord
   validates :name, {presence: true}
   validates :email, {presence: true, uniqueness: true}
 
-  #enum admin:{false:0,admin:1}
+  enum admin:{false:0,true:1}
 
 end

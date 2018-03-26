@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   end
 
   def auth_admin
-    if @current_user.admin != 1
+    if @current_user.admin != "true"
       flash[:notice] = "You don't have admin authority"
       redirect_to '/'
       return
