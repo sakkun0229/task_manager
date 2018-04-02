@@ -12,18 +12,22 @@ class TasksController < ApplicationController
   end
 
   def index
-    @task_page = Task.page(params[:page])
-    @tasks = Task.all.order(updated_at: :desc)
-    @tasks = Task.search(params[:search])
+    @tasks = Task.all.order(updated_at: :desc).search(params[:search]).page(params[:page]).per(5)
+    #@tasks = Task.search(params[:search])
     if params[:sort] == 'updated_at'
-      @tasks = Task.all.order(updated_at: :desc)
+      @tasks = Task.order(updated_at: :desc).page(params[:page]).per(5)
     elsif params[:sort] == 'deadline'
-      @tasks = Task.all.order(deadline: :asc)
+      @tasks = Task.order(deadline: :asc).page(params[:page]).per(5)
     elsif params[:sort] == 'status'
-      @tasks = Task.all.order(status: :asc)
+      @tasks = Task.order(status: :asc).page(params[:page]).per(5)
     elsif params[:sort] == 'priority'
-      @tasks = Task.all.order(priority: :desc)
+      @tasks = Task.order(priority: :desc).page(params[:page]).per(5)
+    #else
+    #  @tasks = Task.page(params[:page]).per(5)
     end
+    #@tasks = Task.where(priority: 'High').limit(1)
+
+
   end
 
   def new
