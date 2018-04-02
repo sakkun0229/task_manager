@@ -10,16 +10,23 @@
 
 <table class="table table-bordered table-hover">
   <tr>
+    <th>User</th>
     <th>Content</th>
+    <th>Labels</th>
     <th><a href="/?sort=status" class="btn">Status</a></th>
     <th><a href="/?sort=priority" class="btn">Priority</a></th>
     <th><a href="/?sort=deadline" class="btn">Deadline</a></th>
     <th><a href="/?sort=updated_at" class="btn">Update</a></th>
     <th></th>
   </tr>
-  <% @user.tasks.each do |task| %>
+  <% @tasks.each do |task| %>
   <tr>
+    <td><%=link_to(task.user.name, "/users/#{task.user.id}") %></td>
     <td><%=task.content%></td>
+    <td><%task.labels.each do |label|%>
+          <%=label.name%>
+        <%end%>
+    </td>
     <td><%=task.status%></td>
     <td><%=task.priority%></td>
     <td><%=task.deadline%></td>
@@ -29,3 +36,4 @@
   </tr>
   <% end %>
 </table>
+<%= paginate @tasks %>

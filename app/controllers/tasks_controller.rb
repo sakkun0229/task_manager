@@ -12,7 +12,7 @@ class TasksController < ApplicationController
   end
 
   def index
-    @tasks = Task.all.order(updated_at: :desc).search(params[:search]).page(params[:page]).per(5)
+    @tasks = Task.all.order(created_at: :asc).search(params[:search]).page(params[:page]).per(5)
     #@tasks = Task.search(params[:search])
     if params[:sort] == 'updated_at'
       @tasks = Task.order(updated_at: :desc).page(params[:page]).per(5)
@@ -25,9 +25,6 @@ class TasksController < ApplicationController
     #else
     #  @tasks = Task.page(params[:page]).per(5)
     end
-    #@tasks = Task.where(priority: 'High').limit(1)
-
-
   end
 
   def new
