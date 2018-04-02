@@ -5,4 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-User.create(name:"qaz", email:"qaz", password:"qaz", admin:"true")
+User.create(name:"admin", email:"admin", password:"admin", admin:"true")
+
+15.times do |i|
+  Task.create(content: "test #{i}", user_id: 1,priority: 0,status: 0,deadline: Time.zone.today)
+end

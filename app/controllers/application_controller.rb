@@ -9,18 +9,12 @@ class ApplicationController < ActionController::Base
       return
     end
   end
-  
+
   def set_current_user
     @current_user = User.find_by(id: session[:user_id])
   end
 
-  def auth_admin
-    if @current_user.admin != "true"
-      flash[:notice] = "You don't have admin authority"
-      redirect_to '/'
-      return
-    end
-  end
+  
 
 
 end

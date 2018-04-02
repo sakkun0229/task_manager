@@ -18,12 +18,11 @@
   <%= f.password_field :password %>
   <%= @user.errors.messages[:password][0]%>
 </p>
-<!--enumの関係？でエラー出る
 <p>
-  Admin<br>
-  <%= f.check_box :admin %>
+  Admin Authority : 
+  <%= f.check_box(:admin, {}, :true, :false)%>
 </p>
--->
+
 <p>
   <%= f.submit  %>
 </p>

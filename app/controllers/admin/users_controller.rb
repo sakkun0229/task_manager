@@ -3,6 +3,14 @@ class Admin::UsersController < ApplicationController
   before_action :auth_user
   before_action :auth_admin
 
+  def auth_admin
+    if @current_user.admin != "true"
+      flash[:notice] = "You don't have admin authority"
+      redirect_to '/'
+      return
+    end
+  end
+
   def index
     @users = User.all
   end

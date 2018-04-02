@@ -19,9 +19,8 @@
   <%= @user.errors.messages[:password][0]%>
 </p>
 <p>
-  Add Admin<br>
-  <%= f.check_box :admin%>
-
+  Admin Authority :
+  <%= f.check_box(:admin, {}, :true, :false)%>
 </p>
 
 <p>

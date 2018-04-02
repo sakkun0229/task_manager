@@ -1,6 +1,5 @@
 
 <h1>Task Index</h1>
-<!-- 検索フォーム形だけ-->
 <p>
 <%= form_tag("/", method:"get") do %>
   <%= text_field_tag :search, params[:search] %>
@@ -23,7 +22,7 @@
   <tr>
     <td><%=link_to(task.user.name, "/users/#{task.user.id}") %></td>
     <td><%=task.content%></td>
-    <td><%=task.labels%></td>
+    <td><%=%></td>
     <td><%=task.status%></td>
     <td><%=task.priority%></td>
     <td><%=task.deadline%></td>
@@ -33,3 +32,5 @@
   </tr>
   <% end %>
 </table>
+
+<%= paginate @task_page %>

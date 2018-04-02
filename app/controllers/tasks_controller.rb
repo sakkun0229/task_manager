@@ -12,6 +12,7 @@ class TasksController < ApplicationController
   end
 
   def index
+    @task_page = Task.page(params[:page])
     @tasks = Task.all.order(updated_at: :desc)
     @tasks = Task.search(params[:search])
     if params[:sort] == 'updated_at'
