@@ -16,4 +16,10 @@ class LabelsController < ApplicationController
     redirect_to labels_path
   end
 
+  def show
+    @label = Label.find(params[:id])
+    @tasks = @label.tasks.page(params[:page]).per(5)
+  end
+
+
 end

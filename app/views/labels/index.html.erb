@@ -1,7 +1,7 @@
 <h2>ALL Labels</h2>
 <div>
   <% @labels.each do |label| %>
-    <%= label.name %>
+    <%= link_to label.name, label_path(label) %>
     <%= link_to "[x]", label_path(label), method: :delete, data: {confirm: "Sure?"} %>
   <%end%>
 </div>
