@@ -24,7 +24,6 @@
   <tr>
     <td><%=link_to(task.user.name, "/users/#{task.user.id}") %></td>
     <td><%=task.content%></td>
-    <!-- <td><%=task.label_ids%></td> -->
     <td><%task.labels.each do |label|%>
           <%=label.name%>
         <%end%>
